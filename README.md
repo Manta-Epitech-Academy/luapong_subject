@@ -22,7 +22,24 @@ Le texte est du Markdown normal, lisible tel quel sur GitHub. Tout ce dont la pl
 
 - **Mode** : `instructor_led`
 - **Validation** : `checkpoint`
-- **Points par étape** : `25` par défaut
+- **Points par étape** : 10 XP par minute estimée, en multiples de 5, fixés étape par étape (1200 XP au total, plus 200 XP pour l'étape bonus, pour une durée estimée de 2 h). Les points CTFd sont les XP Jump, un pour un. On les change ici, puis on resynchronise : jamais à la main dans l'admin CTFd.
+
+| Étape | Validation | XP |
+|---|---|---|
+| Prendre en main l'environnement | quiz | 100 |
+| Affichage du pad et de l'écran de jeu | quiz | 100 |
+| Faire bouger le pad | code animateur | 250 |
+| Quiz : Les touches du joueur | quiz | 25 |
+| Créer la balle rebondissante | quiz | 150 |
+| Faire rebondir la balle | code animateur | 200 |
+| Quiz : Le sens du rebond | quiz | 25 |
+| Checkpoint | code animateur | 50 |
+| Gérer le respawn et la collision avec le pad | code animateur | 300 |
+| Bonus : Ajouter une interface | code animateur | 200 |
+
+L'étape bonus ne bloque rien et ne compte pas dans la progression : ses 200 XP s'ajoutent aux 1200 pour ceux qui la font.
+
+Dans une étape validée par quiz, seule la valeur de l'étape compte : les `points` des questions qu'elle contient sont ignorés.
 - **Runtime** : TIC-80 (`tic80` épinglé en `8a7cb53`) — [tic80-web-editor_runtime](https://github.com/kevin-cazal/tic80-web-editor_runtime)
 
 ## Les réponses
