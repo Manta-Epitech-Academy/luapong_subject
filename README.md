@@ -2,7 +2,7 @@
 
 Créez votre propre jeu Pong simplifié en Lua avec TIC-80 !
 
-Le jumeau Lua de [PyPong](https://github.com/kevin-cazal/pypong_subject) : mêmes étapes, mêmes identifiants, mêmes réponses. Seul le langage change.
+Le jumeau Lua de [PyPong](https://github.com/Manta-Epitech-Academy/pypong_subject) : mêmes étapes, mêmes identifiants, mêmes réponses. Seul le langage change.
 
 Contenu d'atelier au format **convention 2.0**, prêt à être importé dans une instance CTFd par la plateforme [CTFd_coding_platform](https://github.com/kevin-cazal/CTFd_coding_platform).
 
