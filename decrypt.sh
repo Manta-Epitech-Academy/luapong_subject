@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
-# Decrypt quiz_answers.yaml.gpg so the subject can be synced into a CTFd instance.
+# Decrypt quiz_answers.yaml.gpg and checkpoint_codes.yaml.gpg so the subject can be
+# synced from the command line. The admin Sync page does not need this: it asks
+# for the passphrase and decrypts in the browser.
 #
 #   GPG_PASSPHRASE=... ./decrypt.sh
 #
@@ -10,6 +12,9 @@ if [[ -z "${GPG_PASSPHRASE:-}" ]]; then
   echo "Set GPG_PASSPHRASE in the environment." >&2
   exit 1
 fi
-gpg --batch --yes --pinentry-mode loopback --passphrase "$GPG_PASSPHRASE" \
-  -o "$ROOT/quiz_answers.yaml" --decrypt "$ROOT/quiz_answers.yaml.gpg"
-echo "decrypted quiz_answers.yaml.gpg -> quiz_answers.yaml"
+for name in quiz_answers.yaml checkpoint_codes.yaml; do
+  [[ -f "$ROOT/$name.gpg" ]] || continue
+  gpg --batch --yes --pinentry-mode loopback --passphrase "$GPG_PASSPHRASE" \
+    -o "$ROOT/$name" --decrypt "$ROOT/$name.gpg"
+  echo "decrypted $name.gpg -> $name"
+done

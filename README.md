@@ -14,6 +14,7 @@ Contenu d'atelier au format **convention 2.0**, prêt à être importé dans une
 | `intro.md` | document de l'atelier (page d'entrée) |
 | `luapong.md` | document de l'atelier |
 | `quiz_answers.yaml.gpg` | les réponses, chiffrées (voir plus bas) |
+| `checkpoint_codes.yaml.gpg` | les codes de validation donnés par l'encadrant, chiffrés (voir plus bas) |
 | `decrypt.sh` / `encrypt.sh` | déchiffrer avant un import, rechiffrer après une modification |
 
 Le texte est du Markdown normal, lisible tel quel sur GitHub. Tout ce dont la plateforme a besoin est porté par des commentaires HTML `<!-- ws: ... -->`, invisibles à la lecture. La structure de l'atelier est lue dans les titres : il n'y a pas de sommaire à tenir à jour.
@@ -44,11 +45,11 @@ Dans une étape validée par quiz, seule la valeur de l'étape compte : les `poi
 
 ## Les réponses
 
-`quiz_answers.yaml` n'est **pas** en clair dans ce dépôt public. La version chiffrée (`quiz_answers.yaml.gpg`, AES256 symétrique) est versionnée, le clair est ignoré par git.
+`quiz_answers.yaml` (les réponses aux quiz) et `checkpoint_codes.yaml` (le code que l'encadrant donne quand une étape marche, un mot et quatre chiffres) ne sont **pas** en clair dans ce dépôt public. Les versions chiffrées (`.gpg`, AES256 symétrique, même phrase secrète) sont versionnées, le clair est ignoré par git.
 
 ```sh
 GPG_PASSPHRASE=... ./decrypt.sh   # avant un import
-GPG_PASSPHRASE=... ./encrypt.sh   # après avoir modifié les réponses
+GPG_PASSPHRASE=... ./encrypt.sh   # après avoir modifié les réponses ou les codes
 ```
 
 ## Mettre cet atelier en ligne
